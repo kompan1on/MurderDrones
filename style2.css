@@ -1,0 +1,546 @@
+:root {
+    --main-bg-color: rgb(247, 247, 9);
+    /* --main-bg-color: rgb(124, 10, 200); */
+    --main-br-color: rgb(238, 238, 21);
+}
+.brow {
+    width: 25%;
+    height: 5%;
+    transition: all 0.05s;
+    box-shadow: 0 0 1em .25em var(--main-bg-color),
+    inset 0 0 .75em .25em var(--main-bg-color);
+    background-color: var(--main-bg-color);
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    animation: ease-in-out 0.3s infinite fearBrows;
+}
+#LBlackBrow {
+    position: absolute;
+    transform: rotate(-15deg);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    top: -80%;
+    left: -10%;
+    transition: all 0.05s;
+    background-color: rgb(0, 0, 0);
+}
+#leftBrow {
+    transform: rotate(-15deg);
+    left: 14%;
+}
+#RBlackBrow {
+    position: absolute;
+    transform: rotate(15deg);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    top: -80%;
+    left: 60%;
+    transition: all 0.05s;
+    background-color: rgb(0, 0, 0);
+}
+#rightBrow {
+    transform: rotate(15deg);
+    left: 60%;
+}
+#leftEye {
+    width: 15%;
+    height: 55%;
+    background-color: var(--main-bg-color);
+    border-radius: 100%;
+    position: absolute;
+    top: 27%;
+    left: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.05s;
+    box-shadow: 0 0 1em .25em var(--main-bg-color),
+    inset 0 0 .75em .25em var(--main-bg-color);
+    z-index: 1;
+    animation: 2s infinite fearLeftEye;
+    animation-timing-function: linear;
+}
+#rightEye {
+    width: 15%;
+    height: 55%;
+    background-color: var(--main-bg-color);
+    border-radius: 100%;
+    position: absolute;
+    top: 27%;
+    left: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.05s;
+    box-shadow: 0 0 1em .25em var(--main-bg-color),
+    inset 0 0 .75em .25em var(--main-bg-color);
+    z-index: 1;
+    animation: 2s infinite fearRightEye;
+    animation-timing-function: linear;
+}
+#Black {
+    width: 78%;
+    height: 78%;
+    background-color: black;
+    border-radius: 100%;
+    animation: ease-in-out 0.3s infinite fearEyes;
+    filter: blur(1px);
+    box-shadow: 0 0 1em .25em var(--main-bg-color),
+    inset 0 0 .75em .25em var(--main-bg-color);
+}
+
+
+
+
+
+
+#eyes:hover #LBlackBrow {
+    left: 20%;
+    top: -35%;
+    transform: rotate(5deg);
+}
+#eyes:hover #leftBrow {
+    left: 17%;
+    top: 50%;
+    transform: rotate(5deg);
+}
+#eyes:hover #RBlackBrow {
+    left: 60%;
+    top: -35%;
+    transform: rotate(-5deg);
+
+}
+#eyes:hover #rightBrow {
+    left: 55%;
+    top: 50%;
+    transform: rotate(-5deg);
+}
+#eyes:hover #leftEye {
+    width: 15%;
+    height: 10%;
+    opacity: 0;
+    
+}
+#eyes:hover #rightEye {
+    width: 15%;
+    height: 10%;
+    opacity: 0;
+}
+#eyes:hover #Black {
+    opacity: 0;
+}
+
+@keyframes fearEyes {
+    0% {
+        width: 60%;
+        height: 60%;
+        box-shadow: 0 0 3vw .35vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+    }
+    50% {
+        width: 60%;
+        height: 60%;
+        box-shadow: 0 0 3vw .35vw var(--main-bg-color),
+        inset 0 0 2.25vw .25vw var(--main-bg-color);
+    }
+}
+@keyframes fearBrows {
+    0% {
+        box-shadow: 0 0 3vw .6vw var(--main-bg-color),
+        inset 0 0 1.25vw .5vw var(--main-bg-color);
+    }
+    50% {
+        box-shadow: 0 0 3vw .35vw var(--main-bg-color),
+        inset 0 0 15.25vw .25vw var(--main-bg-color);
+    }
+}
+@keyframes fearLeftEye {
+    0% {
+        left: 26%;   
+        top: 30%;
+    }
+    5% {
+        top: 22%;
+        left: 18%;
+    }
+    7% {
+        left: 19%;
+    }
+    9% {
+        left: 18%;
+        
+    }
+    11% {
+        left: 19%;
+    }
+    13% {
+        left: 18%;
+        
+    }
+    15% {
+        left: 19%;
+    }
+    17% {
+        left: 18%;
+        
+    }
+    19% {
+        left: 19%;
+    }
+    21% {
+        left: 18%;
+        
+    }
+    23% {
+        left: 19%;
+        top: 22%;
+    }
+    28% {
+        top: 20%;
+        left: 26%;
+    }
+    30% {
+        left: 25%;
+    }
+    32% {
+        left: 26%;
+    }
+    34% {
+        left: 25%;
+    }
+    36% {
+        left: 26%;
+    }
+    38% {
+        left: 25%;
+    }
+    40% {
+        left: 26%;
+    }
+    42% {
+        left: 25%;
+    }
+    44% {
+        left: 26%;
+    }
+    46% {
+        left: 25%;
+    }
+    48% {
+        left: 26%;
+
+    }
+    50% {
+        left: 25%;
+    }
+    52% {
+        left: 26%;
+        top: 20%;
+    }
+    57% {
+        top: 34%;
+        left: 16%;
+    }
+    59% {
+        left: 16%;
+        top: 33%;
+    }
+    61% {
+        left: 15%;
+    }
+    63% {
+        left: 16%;
+        
+    }
+    65% {
+        left: 15%;
+        
+    }
+    67% {
+        left: 16%;
+        
+    }
+    69% {
+        left: 15%;
+        
+    }
+    71% {
+        left: 16%;
+        
+    }
+    73% {
+        left: 15%;
+        
+    }
+    75% {
+        left: 16%;
+    }
+    77% {
+        left: 15%;
+    }
+    79% {
+        left: 16%;
+        top: 33%;
+    }
+    84% {
+        left: 26%;
+        top: 30%;
+    }
+    86% {
+        left: 25%;
+    }
+    88% {
+        left: 26%;
+
+    }
+    90% {
+        left: 25%;
+    }
+    92% {
+        left: 26%;
+        
+    }
+    94% {
+        left: 25%;
+    }
+    96% {
+        left: 26%;
+        
+    }
+    98% {
+        left: 25%;
+    }
+    100% {
+        left: 26%;   
+        top: 30%;
+    }
+}
+@keyframes fearRightEye {
+    0% {
+        left: 64%;   
+        top: 30%;
+    }
+    5% {
+        top: 22%;
+        left: 56%;
+    }
+    7% {
+        left: 57%;
+    }
+    9% {
+        left: 56%;
+        
+    }
+    11% {
+        left: 57%;
+    }
+    13% {
+        left: 56%;
+        
+    }
+    15% {
+        left: 57%;
+    }
+    17% {
+        left: 56%;
+        
+    }
+    19% {
+        left: 57%;
+    }
+    21% {
+        left: 56%;
+        
+    }
+    23% {
+        left: 57%;
+        top: 22%;
+    }
+    28% {
+        top: 20%;
+        left: 64%;
+    }
+    30% {
+        left: 65%;
+    }
+    32% {
+        left: 64%;
+    }
+    34% {
+        left: 65%;
+    }
+    36% {
+        left: 64%;
+    }
+    38% {
+        left: 65%;
+    }
+    40% {
+        left: 64%;
+    }
+    42% {
+        left: 65%;
+    }
+    44% {
+        left: 64%;
+    }
+    46% {
+        left: 65%;
+    }
+    48% {
+        left: 64%;
+
+    }
+    50% {
+        left: 65%;
+    }
+    52% {
+        left: 64%;
+        top: 20%;
+    }
+    57% {
+        top: 34%;
+        left: 54%;
+    }
+    59% {
+        left: 54%;
+        top: 33%;
+    }
+    61% {
+        left: 55%;
+    }
+    63% {
+        left: 54%;
+        
+    }
+    65% {
+        left: 55%;
+        
+    }
+    67% {
+        left: 54%;
+        
+    }
+    69% {
+        left: 55%;
+        
+    }
+    71% {
+        left: 54%;
+        
+    }
+    73% {
+        left: 55%;
+        
+    }
+    75% {
+        left: 54%;
+    }
+    77% {
+        left: 55%;
+    }
+    79% {
+        left: 54%;
+        top: 33%;
+    }
+    84% {
+        left: 64%;
+        top: 30%;
+    }
+    86% {
+        left: 65%;
+    }
+    88% {
+        left: 64%;
+
+    }
+    90% {
+        left: 65%;
+    }
+    92% {
+        left: 64%;
+        
+    }
+    94% {
+        left: 65%;
+    }
+    96% {
+        left: 64%;
+        
+    }
+    98% {
+        left: 65%;
+    }
+    100% {
+        left: 64%;   
+        top: 30%;
+    }
+}
+
+
+
+
+#mouth {
+    opacity: 0;
+    aspect-ratio: 16 / 6;
+    margin-top: -5%;
+    width: 105%;
+    height: 35%;
+    background-color: black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+#elips {
+    background-color: black;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    border-radius: 100%;
+    top: -50%;
+    z-index: 1;
+    transition: all 1s;
+}
+.LE {
+    transform: rotate(10deg);
+    left: -28%;
+}
+.RE {
+    transform: rotate(-10deg);
+    left: 48%;
+}
+#midleElips {
+    background-color: black;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: -75%;
+    z-index: 2;
+    transition: all 1s;
+}
+#yellowElips {
+    background-color: var(--main-bg-color);
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    border-radius: 100%;
+    top: -20%;
+    transition: all 1s;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+
+
+
+.glitch {
+    
+}

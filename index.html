@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="stylesheet" rel="stylesheet" href="style0.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex-direction: column;
+}
+#eyes {
+    aspect-ratio: 16 / 9;
+    width: 100%;    
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    display: flex;
+    animation-name: blink;
+    cursor: pointer;
+    
+}
+#brows {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(0, 255, 255, 0);
+    position: absolute;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+#brows2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(0, 255, 255, 0);
+    position: absolute;
+}
+    #mouth {
+    aspect-ratio: 16 / 6;
+    margin-top: -5%;
+    width: 105%;
+    height: 35%;
+    background-color: black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+#elips {
+    background-color: black;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    border-radius: 100%;
+    top: -50%;
+    z-index: 1;
+    transition: all 0.5s;
+    pointer-events: none;
+    /* box-shadow: 0 0 1em .25em var(--main-bg-color),
+    inset 0 0 .75em .25em var(--main-bg-color); */
+    
+}
+.LE {
+    transform: rotate(15deg);
+    /* transform: rotate(10deg); */
+    left: -24%;
+    
+}
+.RE {
+    transform: rotate(-15deg);
+    /* transform: rotate(-10deg); */
+    left: 44%;
+}
+#midleElips {
+    background-color: black;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: -75%;
+    z-index: 2;
+    transition: all 0.5s;
+    
+}
+#yellowElips {
+    background-color: var(--main-bg-color);
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    border-radius: 100%;
+    top: -15%;
+    /* top: -20%; */
+    transition: all 0.5s;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    box-shadow: 0 0 1vw .25vw var(--main-bg-color),
+    inset 0 0 .75vw .25vw var(--main-bg-color);
+    animation: ease-in-out 0.5s infinite deth;
+}
+.triangle {
+    z-index: 3;
+    width: 10%;
+    height: 20%;
+    position: absolute;
+    color: #fff;
+    /* background-color: azure ; */
+}
+.triangle::after {
+    content: ''; 
+    left: 0; bottom: 0vw; /* Положение треугольника */
+    border: 4vw solid transparent;
+    border-top: 4vw solid rgb(0, 0, 0);
+}
+#T1 {
+    transform: rotate(-155deg);
+    top:38%;
+    left: 20%;
+}
+
+#T2 {
+    transform: rotate(-150deg);
+    top: 43%;
+    left: 32%;
+}
+#T3 {
+    transform: rotate(150deg);
+    top: 33%;
+    left: 66%;
+}
+#T4 {
+    transform: rotate(155deg);
+    top: 28%;
+    left: 79%;
+}
+#face:hover .LE {
+    transform: rotate(-5deg);
+    
+}
+#face:hover .RE {
+    transform: rotate(5deg);
+    
+}
+#face:hover #midleElips {
+    top: -90%;
+}
+#face:hover #yellowElips {
+    top: -50%;
+    width: 0%;
+    height: 0%;
+}
+
+
+
+
+
+
+</style>
+<body>
+    <div id="root">
+        <div id="face">
+            <div id="eyes">
+                <div id="brows">
+                    
+                    <div id="leftBrow" class="brow"></div>
+                    <div id="LBlackBrow"></div>
+                    
+                    <div id="rightBrow" class="brow"></div>
+                    <div id="RBlackBrow"></div>
+                    
+                    <div id="brows2" class="initialized">
+                        <div id="leftBrow1" class="brow1"></div>
+                        <div id="LBlackBrow1"></div>
+                    
+                        <div id="rightBrow1" class="brow1"></div>
+                        <div id="RBlackBrow1"></div>
+                        
+                    </div>
+                    
+                    <div id="absoluteSolver">
+                        <div id="hexagon1">
+                            <div id="hexagon2">
+                                <div id="hexagon3"></div>
+                            </div>
+                        </div>                            
+                            <div id="Tr1" class="AStriangle"></div>
+                            <div>
+                                <div id="leftB1" class="tBorder"></div>
+                                <div id="bottomB1" class="tBorder"></div>
+                                <div id="rightB1" class="tBorder"></div>   
+                            </div>
+
+                            <div id="Tr2" class="AStriangle"></div>
+                            <div>
+                                <div id="leftB2" class="tBorder"></div>
+                                <div id="bottomB2" class="tBorder"></div>
+                                <div id="rightB2" class="tBorder"></div>
+                            </div>
+
+                            <div id="Tr3" class="AStriangle"></div>
+                            <div>
+                                <div id="leftB3" class="tBorder"></div>
+                                <div id="bottomB3" class="tBorder"></div>
+                                <div id="rightB3" class="tBorder"></div>
+                            </div>
+                            
+                            <div id="trapezoid1" class="AStrapezoid"></div>
+                            <div id="LTrSh1" class="TS"></div>
+                            <div id="LTrSh2" class="TS"></div>
+                            <div id="trapezoid2" class="AStrapezoid"></div>
+                            <div id="MTrSh1" class="TS"></div>
+                            <div id="MTrSh2" class="TS"></div>
+                            <div id="trapezoid3" class="AStrapezoid"></div>
+                            <div id="RTrSh1" class="TS"></div>
+                            <div id="RTrSh2" class="TS"></div>
+                    </div>
+
+                </div>
+                <div id="leftEye">
+                    <div id="Black"></div>
+                </div>
+                <div id="rightEye">
+                    <div id="Black"></div>
+                </div>
+            </div>
+            <div id="mouth">
+                <div id="elips" class="LE"></div>
+                <div id="elips" class="RE"></div>
+                <div id="midleElips" class="ME"></div>
+                
+                <div id="yellowElips" class="YL">
+                    <div class="triangle" id="T1"></div>
+                    <div class="triangle a" id="T2"></div>
+
+                    <div class="triangle a" id="T3"></div>
+                    <div class="triangle a" id="T4"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

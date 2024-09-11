@@ -1,0 +1,715 @@
+/* Идея сделать абсолют солвер вместо крестика на глазах.
+когда глаза закрыты, полосы бровей выглядят одной линией
+когда открываются, брови разьезжаются вверх и вниз(transform: rotation(0deg);, за тем исчезают,
+а на месте глаз появляется абсолют солвер */
+:root {
+    /* --main-bg-color: rgb(247, 247, 9); */
+    --main-bg-color: rgb(124, 10, 200);
+    /* --main-br-color: rgb(238, 238, 21); */
+    --main-br-color: rgb(134, 37, 199);
+    --main-aniOpen-time: 1.03s;
+    --main-aniClose-time: 0.67s;
+}
+.brow1 {
+    width: 0%;
+    height: 0%;
+    transition: all 0.7s;
+    background-color: var(--main-bg-color);
+    z-index: 1;
+    margin-left: 15%;
+    position: absolute;
+    top: 50%;
+    animation: ease-in-out 0.5s infinite deth;
+    display: flex;
+}
+#LBlackBrow1 {
+    position: absolute;
+    transform: rotate(0deg);
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    top: -10%;
+    left: 0;
+    
+    background-color: rgb(0, 0, 0);
+    animation: var(--main-aniOpen-time) both aSonLBbrow;
+    z-index: 10;
+}
+#leftBrow1 {
+    transform: rotate(0deg);
+    left: 0%;
+    animation: var(--main-aniOpen-time) both aSonLbrow;
+}
+#RBlackBrow1 {
+    position: absolute;
+    transform: rotate(0deg);
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    top: 50%;
+    left: 0%;
+    background-color: rgb(0, 0, 0);
+    animation: var(--main-aniOpen-time) both aSonRBbrow;
+    z-index: 10;
+}
+#rightBrow1 {
+    transform: rotate(0deg);
+    left: 0%;
+    animation: var(--main-aniOpen-time) both aSonRbrow;
+}
+#absoluteSolver {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    pointer-events: none;
+}
+#hexagon1 {
+    width: 20%; /* Ширина шестиугольника */
+    height: 20%; /* Высота шестиугольника */
+    background-color: var(--main-bg-color); /* Цвет шестиугольника */
+    position: relative;
+    display: inline-block;
+    z-index: 5;
+    left: 40%;
+    top: 55%;
+    box-shadow: 0 0 1.5vw .25vw var(--main-bg-color);
+    animation: ease-in-out 0.5s infinite deth;
+    pointer-events: none;
+}
+
+#hexagon1::before,
+#hexagon1::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transform: rotate(60deg);
+    left: 0;
+    box-shadow: 0 0 3vw .5vw var(--main-bg-color);
+    animation: ease-in-out 0.5s infinite deth;
+    pointer-events: none;
+}
+
+#hexagon1::before {
+    top: 0; /* Половина высоты */
+}
+
+#hexagon1::after {
+    bottom: 0; /* Половина высоты */
+    transform: rotate(120deg);
+}
+#hexagon2 {
+    width: 85%; /* Ширина шестиугольника */
+    height: 85%; /* Высота шестиугольника */
+    background-color: black; /* Цвет шестиугольника */
+    position: relative;
+    z-index: 5;
+    left: 7.5%;
+    top: 7.5%;
+    /* box-shadow: inset 0 0 1.5vw .25vw var(--main-bg-color); */
+    pointer-events: none;
+    animation: infinite ease-in-out 0.5s deth3;
+}
+
+#hexagon2::before,
+#hexagon2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transform: rotate(60deg);
+    left: 0;
+    /* box-shadow: inset 0 0 3vw .5vw var(--main-bg-color); */
+    pointer-events: none;
+}
+
+#hexagon2::before {
+    top: 0; /* Половина высоты */
+}
+
+#hexagon2::after {
+    bottom: 0; /* Половина высоты */
+    transform: rotate(120deg);
+}
+#hexagon3 {
+    width: 80%; /* Ширина шестиугольника */
+    height: 80%; /* Высота шестиугольника */
+    background-color: var(--main-bg-color); /* Цвет шестиугольника */
+    position: relative;
+    z-index: 5;
+    left: 10%;
+    top: 10%;
+    box-shadow: 0 0 3.5vw .5vw var(--main-bg-color);
+    pointer-events: none;
+    animation: infinite ease-in-out 0.5s deth4;
+}
+
+#hexagon3::before,
+#hexagon3::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transform: rotate(60deg);
+    left: 0;
+    box-shadow:  0 0 3.5vw .5vw var(--main-bg-color);
+    pointer-events: none;
+}
+
+#hexagon3::before {
+    top: 0; /* Половина высоты */
+}
+
+#hexagon3::after {
+    bottom: 0; /* Половина высоты */
+    transform: rotate(120deg);
+}
+
+.AStriangle {
+    background-color: transparent;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    background-color: var(--main-bg-color);
+    width: 7%; 
+    height: 17%;
+    position: absolute;
+    border-radius: 15px;
+    opacity: 1;
+}
+#Tr1 {
+    top: 84.3%;
+    left: 20%;
+    transform: rotate(240deg);
+}
+#Tr2 {
+    top: 2%;
+    left: 46.5%;
+}
+#Tr3 {
+    top: 84.3%;
+    left: 73%;
+    transform: rotate(120deg);
+}
+.AStrapezoid {
+    position: absolute;
+    /* width: 4%; */
+    width: 3%;
+    height: 40%;
+    background-color: var(--main-bg-color);
+    clip-path: polygon(35% 0%, 65% 0%, 100% 100%, 0% 100%);
+    animation: infinite ease-in-out 0.5s deth2;
+    /* box-shadow: 0 0 1.5vw .25vw var(--main-bg-color); */
+    
+}
+.TS {
+    width: 0;
+    height: 40%;
+    box-shadow: 0 0 1.5vw .55vw var(--main-bg-color);
+    animation: infinite ease-in-out 0.5s deth2;
+}
+#LTrSh1 {
+    position: absolute;
+    top: 61%;
+    /* left: 33%; */
+    left: 33.5%;
+    transform: rotate(239deg);
+}
+#LTrSh2 {
+    position: absolute;
+    top: 63%;
+    /* left: 33%; */
+    left: 34%;
+    transform: rotate(241deg);
+}
+#MTrSh1 {
+    position: absolute;
+    top: 15%;
+    /* left: 33%; */
+    left: 49.5%;
+    transform: rotate(1deg);
+}
+#MTrSh2 {
+    position: absolute;
+    top: 15%;
+    /* left: 33%; */
+    left: 50.5%;
+    transform: rotate(-1deg);
+}
+#RTrSh1 {
+    position: absolute;
+    top: 61%;
+    /* left: 33%; */
+    left: 67.55%;
+    transform: rotate(-239deg);
+}
+#RTrSh2 {
+    position: absolute;
+    top: 63%;
+    /* left: 33%; */
+    left: 65%;
+    transform: rotate(-241deg);
+}
+.tBorder {
+    height:0%;
+    width: 9%;
+    position: absolute;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 0 1.5vw .5vw var(--main-bg-color);
+    animation: infinite ease-in-out 0.5s deth2;
+}
+#trapezoid1 {
+    top: 61%;
+    /* left: 33%; */
+    left: 33.5%;
+    transform: rotate(240deg);
+    
+}
+#leftB1 {
+    top: 95%;
+    left: 20%;
+    transform: rotate(352deg);
+}
+#rightB1 {
+    top: 90%;
+    left: 18.5%;
+    transform: rotate(312deg);
+}
+#bottomB1 {
+    top: 89%;
+    left: 24%;
+    width: 6%;
+    transform: rotate(242.5deg);
+    display: none;
+}
+#trapezoid2 {
+    top: 15%;
+    /* left: 48%; */
+    left: 48.5%;
+}
+#leftB2 {
+    top: 10%;
+    left: 44%;
+    transform: rotate(110deg);
+}
+#rightB2 {
+    top: 10%;
+    left: 47%;
+    transform: rotate(70deg);
+}
+#bottomB2 {
+    top: 15%;
+    left: 47%;
+    width: 6%;
+    display: none;
+}
+#trapezoid3 {
+    top: 61%;
+    /* left: 63%; */
+    left: 63.5%;
+    transform: rotate(120deg);
+}
+#leftB3 {
+    top: 95%;
+    left: 72%;
+    transform: rotate(-352deg);
+    
+}
+#rightB3 {
+    top: 90%;
+    left: 72.5%;
+    transform: rotate(-312deg);
+}
+#bottomB3 {
+    top: 90%;
+    left: 70%;
+    width: 6%;
+    transform: rotate(-242.5deg);
+    display: none;
+}
+
+
+
+/* #face:hover .brow1 {
+    width: 0%;
+    height: 0%;
+} */
+/* #face:hover #LBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLBbrow;
+} */
+/* #face:hover #leftBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLbrow;
+} */
+/* #face:hover #RBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRBbrow;
+
+}
+#face:hover #rightBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRbrow;
+} */
+
+
+
+/* #face:hover:not(.initialized) .brow1,
+#face:hover:not(.initialized) #LBlackBrow1,
+#face:hover:not(.initialized) #leftBrow1,
+#face:hover:not(.initialized) #RBlackBrow1,
+#face:hover:not(.initialized) #rightBrow1 {
+    animation: none;
+}
+#face.initialized .brow1 {
+    width: 0%;
+    height: 0%;
+}
+#face.initialized #LBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLBbrow;
+}
+#face.initialized #leftBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLbrow;
+}
+#face.initialized #RBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRBbrow;
+}
+#face.initialized #rightBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRbrow;
+} */
+
+
+
+
+
+/* #face:hover:not(.initialized) .brow1 {
+    width: 0%;
+    height: 0%;
+}
+#face:hover:not(.initialized) #LBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLBbrow;
+}
+#face:hover:not(.initialized) #leftBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLbrow;
+}
+#face:hover:not(.initialized) #RBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRBbrow;
+}
+#face:hover:not(.initialized) #rightBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRbrow;
+}
+#face.initialized .brow1,
+#face.initialized #LBlackBrow1,
+#face.initialized #leftBrow1,
+#face.initialized #RBlackBrow1,
+#face.initialized #rightBrow1 {
+    animation: none;
+} */
+
+
+
+
+/* Обычные анимации, которые будут работать только после первого ухода курсора */
+#brows2:hover .brow1 {
+    width: 0%;
+    height: 0%;
+}
+#brows2:hover #LBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLBbrow;
+}
+#brows2:hover #leftBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffLbrow;
+}
+#brows2:hover #RBlackBrow1 {
+    width: 100%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRBbrow;
+}
+#brows2:hover #rightBrow1 {
+    top: 52%;
+    left: 35.5%;
+    transform: rotate(0deg);
+    animation: var(--main-aniClose-time) both aSoffRbrow;
+}
+#brows2.initialized:hover .brow1,
+#brows2.initialized:hover #LBlackBrow1,
+#brows2.initialized:hover #leftBrow1,
+#brows2.initialized:hover #RBlackBrow1,
+#brows2.initialized:hover #rightBrow1 {
+    animation: none;
+}
+
+
+
+@keyframes deth {
+    1% {
+        box-shadow: 0 0 1vw .25vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+    }
+    2% {
+        box-shadow: 0 0 3vw .5vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+    }
+}
+@keyframes deth2 {
+    1% {
+        box-shadow: 0 0 1vw .25vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+    }
+    2% {
+        box-shadow: 0 0 3vw 1vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+    }
+}
+@keyframes deth3 {
+    1% {
+        width: 90%; /* Ширина шестиугольника */
+        height: 90%; /* Высота шестиугольника */
+        z-index: 5;
+        left: 5%;
+        top: 5%;
+    }
+    2% {
+    }
+}
+@keyframes deth4 {
+    1% {
+        box-shadow: 0 0 1vw .25vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+        width: 85%; /* Ширина шестиугольника */
+        height: 85%; /* Высота шестиугольника */
+        z-index: 5;
+        left: 7.5%;
+        top: 7.5%;
+    }
+    2% {
+        box-shadow: 0 0 3vw 1vw var(--main-bg-color),
+        inset 0 0 .75vw .25vw var(--main-bg-color);
+    }
+}
+@keyframes aSonLbrow {
+    0% {
+        top: 50%;
+        width: 0;
+        left: 35.5%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+    50% {
+        top: 50%;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    75% {
+        top: 0%;
+        width: 70%;
+        left: 0;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    100% {
+        width: 0;
+        left: 35.5%;
+        top: 0%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+}
+@keyframes aSonRbrow {
+    0% {
+        top: 50%;
+        width: 0;
+        left: 35.5%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+    50% {
+        top: 50%;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    75% {
+        left: 0;
+        top: 100%;
+        width: 70%;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    100% {
+        top: 100%;
+        width: 0;
+        left: 35.5%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+}
+@keyframes aSonLBbrow {
+    0% {
+        width: 100%;
+        height: 60%;
+    }
+    50% {
+        height: 60%;
+    }
+    75% {
+        height: 0%;
+        width: 100%;
+    }
+    100% {
+        height: 0%;
+        width: 100%;
+    }
+}
+@keyframes aSonRBbrow {
+    0% {
+        width: 100%;
+        height: 60%;
+        top: 50%;
+    }
+    50% {
+        height: 60%;
+        top: 50%;
+    }
+    75% {
+        height: 0%;
+        width: 100%;
+        top: 100%;
+    }
+    100% {
+        height: 0%;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+@keyframes aSoffLbrow {
+    100% {
+        top: 50%;
+        width: 0;
+        left: 35.5%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+    75% {
+        top: 50%;
+        width: 70%;
+        left: 0;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    50% {
+        top: 0%;
+        width: 70%;
+        left: 0;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    0% {
+        width: 0;
+        left: 35.5%;
+        top: 0%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+}
+@keyframes aSoffRbrow {
+    100% {
+        top: 50%;
+        width: 0;
+        left: 35.5%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+    75% {
+        top: 50%;
+        left: 0;
+        width: 70%;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    50% {
+        left: 0;
+        top: 100%;
+        width: 70%;
+        box-shadow: 0 0 .75em .5em var(--main-bg-color),
+        inset 0 0 .75em .25em var(--main-bg-color);
+    }
+    0% {
+        top: 100%;
+        width: 0;
+        left: 35.5%;
+        box-shadow: 0 0 0em 0em var(--main-bg-color);
+    }
+}
+@keyframes aSoffLBbrow {
+    100% {
+        width: 100%;
+        height: 60%;
+    }
+    75% {
+        height: 60%;
+    }
+    50% {
+        height: 0%;
+        width: 100%;
+    }
+    0% {
+        height: 0%;
+        width: 100%;
+    }
+}
+@keyframes aSoffRBbrow {
+    100% {
+        width: 100%;
+        height: 60%;
+        top: 50%;
+    }
+    75% {
+        height: 60%;
+        top: 50%;
+    }
+    50% {
+        height: 0%;
+        width: 100%;
+        top: 100%;
+    }
+    0% {
+        height: 0%;
+        width: 100%;
+    }
+}
