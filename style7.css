@@ -4,54 +4,71 @@
     /* --main-br-color: rgb(238, 238, 21); */
     --main-br-color: rgb(134, 37, 199);
 }
-.brow {
+/* .brow {
     width: 25%;
     height: 5%;
     transition: all 0.05s;
     box-shadow: 0 0 1em .25em var(--main-bg-color),
     inset 0 0 .75em .25em var(--main-bg-color);
     background-color: var(--main-bg-color);
-    z-index: 10;
+    z-index: 0;
     position: absolute;
-    top: 40%;
+    top: 10%;
     animation: ease-in-out 0.5s infinite fearBrows;
+} */
+.brow {
+    width: 25%;
+    height: 60%;
+    transition: all 0.05s;
+    box-shadow: 0 0 .5em .25em var(--main-bg-color);
+    background-color: var(--main-bg-color);
+    z-index: 0;
+    position: absolute;
+    top: 10%;
+    animation: ease-in-out 0.5s infinite fearBrows;
+    border-radius: 100%;
 }
 #LBlackBrow {
     position: absolute;
-    transform: rotate(0deg);
-    width: 75%;
+    transform: rotate(-15deg);
+    width: 70%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: end;
-    top: -60%;
-    left: -11%;
+    top: 15%;
+    left: 5%;
     transition: all 0.05s;
     background-color: rgb(0, 0, 0);
     pointer-events: none;
-    z-index: 5;
+    border-radius: 100%;
+    z-index: 1;
 }
 #leftBrow {
-    left: 14%;
+    transform: rotate(-15deg);
+    left: 20%;
 }
 #RBlackBrow {
     position: absolute;
-    transform: rotate(0deg);
-    width: 75%;
+    transform: rotate(15deg);
+    width: 70%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: end;
-    top: -60%;
-    left: 61%;
+    top: 15%;
+    left: 25%;
     transition: all 0.05s;
     background-color: rgb(0, 0, 0);
     pointer-events: none;
-    z-index: 5;
+    border-radius: 100%;
+    z-index: 1;
 }
 #rightBrow {
-    left: 60%;
+    transform: rotate(15deg);
+    left: 55%;
 }
+
 #leftEye {
     width: 15%;
     height: 55%;
@@ -63,10 +80,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.1s;
+    transition: all 0.05s;
     box-shadow: 0 0 1em .25em var(--main-bg-color),
     inset 0 0 .75em .25em var(--main-bg-color);
-    z-index: 1;
+    z-index: 10;
     animation: 2s infinite fearLeftEye;
     animation-timing-function: linear;
     animation: ease-in-out 0.5s infinite fearEyes;
@@ -78,14 +95,14 @@
     border-radius: 100%;
     position: absolute;
     top: 27%;
-    left: 70%;
+    left: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.1s;
+    transition: all 0.05s;
     box-shadow: 0 0 1em .25em var(--main-bg-color),
     inset 0 0 .75em .25em var(--main-bg-color);
-    z-index: 1;
+    z-index: 10;
     animation: 2s infinite fearRightEye;
     animation-timing-function: linear;
     animation: ease-in-out 0.5s infinite fearEyes;
@@ -106,22 +123,37 @@
 
 
 
-
+#eyes:hover .brow {
+    width: 25%;
+    height: 5%;
+    z-index: 1;
+    top: 10%;
+    border-radius: 0;
+    z-index: 5;
+}
 #eyes:hover #LBlackBrow {
-    left: -10%;
-    top: -50%;
+    left: 20%;
+    top: -35%;
     transform: rotate(5deg);
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 1;
 }
 #eyes:hover #leftBrow {
     left: 17%;
     top: 50%;
     transform: rotate(5deg);
+    
 }
 #eyes:hover #RBlackBrow {
-    left: 45%;
-    top: -50%;
+    left: 60%;
+    top: -35%;
     transform: rotate(-5deg);
-
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 1;
 }
 #eyes:hover #rightBrow {
     left: 55%;
@@ -129,14 +161,15 @@
     transform: rotate(-5deg);
 }
 #eyes:hover #leftEye {
-    top: -5%;
-    
+    width: 15%;
+    height: 10%;
+    opacity: 0;
     
 }
 #eyes:hover #rightEye {
-    top: -5%;
-    left: 58%;
-    
+    width: 15%;
+    height: 10%;
+    opacity: 0;
 }
 #eyes:hover #Black {
     opacity: 0;
@@ -156,12 +189,10 @@
 }
 @keyframes fearBrows {
     0% {
-        box-shadow: 0 0 4vw .9vw var(--main-bg-color),
-        inset 0 0 1.25vw .5vw var(--main-bg-color);
+        box-shadow: 0 0 1em .5em var(--main-bg-color);
     }
     50% {
-        box-shadow: 0 0 4vw .35vw var(--main-bg-color),
-        inset 0 0 15.25vw .25vw var(--main-bg-color);
+        box-shadow: 0 0 1em .25em var(--main-bg-color);
     }
 }
 
@@ -218,11 +249,4 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-}
-
-
-
-
-.glitch {
-    
 }
